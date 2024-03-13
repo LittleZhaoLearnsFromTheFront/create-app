@@ -7,8 +7,6 @@ import {
     green,
     yellow,
     magenta,
-    lightBlue,
-    lightGreen
 } from 'kolorist'
 import { fileURLToPath } from 'node:url'
 
@@ -18,29 +16,17 @@ const cwd = process.cwd()
 
 const FRAMEWORKS = [
     {
-        name: 'react',
-        title: 'React',
-        template: 'react',
+        name: 'express',
+        title: 'Express',
+        template: 'express',
         color: green
     },
     {
-        name: 'react-ts',
-        title: 'React-Ts',
-        template: 'react-ts',
+        name: 'vite-plugin',
+        title: 'Vite-plugin',
+        template: 'vite-plugin',
         color: blue
-    },
-    {
-        name: 'react-labmai',
-        title: 'React-Labmai',
-        template: 'react-labmai',
-        color: lightBlue
-    },
-    {
-        name: 'react-promotion',
-        title: 'React-Promotion',
-        template: 'react-promotion',
-        color: lightGreen
-    },
+    }
 ]
 
 const defaultProjectDir = 'labmai-vite-project'
@@ -48,20 +34,6 @@ const renameFiles: {
     [key: string]: string
 } = {
     '_gitignore': '.gitignore'
-}
-
-const getScripts = (packageName: string): { [key: string]: string } => {
-    return {
-        'push:erguotou': `rsync -az --delete --rsync-path='sudo rsync' dist $USER@erguotou:/labmai.service/data/${packageName}/`,
-        "push:business": `rsync -az --delete --rsync-path='sudo rsync' dist $USER@erguotou:/labmai.business/service/data/${packageName}/`,
-
-    }
-}
-
-const getConfigJSON = (projectName: string): { [key: string]: string } => {
-    return {
-        "VITE_PROMOTION_VERSION": projectName
-    }
 }
 
 const init = async () => {
@@ -220,24 +192,7 @@ const toValidPackageName = (projectName: string) => {
 const getPkgFile = (file: string, packageName: string) => {
     const pkg = JSON.parse(fs.readFileSync(file, 'utf-8'))
     pkg.name = packageName
-    const scripts = getScripts(packageName)
-    Object.keys(scripts).forEach(key => {
-        if (Reflect.has(pkg.scripts, key)) {
-            pkg.scripts[key] = scripts[key]
-        }
-    })
     return JSON.stringify(pkg, null, 2)
-}
-
-const getConfigFile = (file: string, projectName: string) => {
-    const config = JSON.parse(fs.readFileSync(file, 'utf-8'))
-    const configJSON = getConfigJSON(projectName)
-    Object.keys(configJSON).forEach(key => {
-        if (Reflect.has(config, key)) {
-            config[key] = configJSON[key]
-        }
-    })
-    return JSON.stringify(config, null, 2)
 }
 
 const write = (templateDir: string, root: string, { packageName, projectName }: { packageName: string, projectName: string }) => {
@@ -250,12 +205,6 @@ const write = (templateDir: string, root: string, { packageName, projectName }: 
 
         if (newFile === 'package.json') {
             const content = getPkgFile(originPath, packageName)
-
-            fs.writeFileSync(targetPath, content)
-            return
-        }
-        if (newFile === 'config.json') {
-            const content = getConfigFile(originPath, projectName)
 
             fs.writeFileSync(targetPath, content)
             return

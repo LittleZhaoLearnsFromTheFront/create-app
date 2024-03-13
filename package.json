@@ -9,19 +9,20 @@
     "registry": "https://registry.npmjs.org",
     "access": "public"
   },
-  "homepage": "https://github.com/LittleZhaoLearnsFromTheFront/labmai-business-fe-frame",
+  "homepage": "https://github.com/LittleZhaoLearnsFromTheFront",
   "repository": {
     "type": "github",
-    "url": "https://github.com/LittleZhaoLearnsFromTheFront/labmai-business-fe-frame.git"
+    "url": "https://github.com/LittleZhaoLearnsFromTheFront/create-app.git"
   },
   "bin": {
-    "create-react-crv": "index.js",
-    "crv": "index.js"
+    "create-app": "index.js",
+    "capp": "index.js"
   },
   "scripts": {
     "build": "unbuild",
     "start": "./index.js",
     "prestart": "unbuild",
+    "dev": "npm start",
     "pub": "./scripts/publish.sh"
   },
   "files": [
@@ -30,8 +31,10 @@
     "dist"
   ],
   "keywords": [
+    "express",
     "vite",
-    "react"
+    "plugin",
+    "javaScript"
   ],
   "author": "zhaohx0409@163.com",
   "license": "ISC",
