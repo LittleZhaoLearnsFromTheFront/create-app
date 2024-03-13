@@ -1,5 +1,5 @@
 {
-  "name": "create-app",
+  "name": "create-app-js",
   "private": false,
   "version": "0.0.0",
   "description": "这是一个创建express vite+plugin等前端项目的脚手架工具",
@@ -15,7 +15,7 @@
     "url": "https://github.com/LittleZhaoLearnsFromTheFront/create-app.git"
   },
   "bin": {
-    "create-app": "index.js",
+    "create-app-js": "index.js",
     "capp": "index.js"
   },
   "scripts": {

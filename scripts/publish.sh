@@ -38,7 +38,7 @@ publishProject(){
 
 # 开始
 packageVersionNow=$(node -e "(function () { console.log(require('./package.json').version) })()")
-npmVersionNow=$(npm view create-react-crv version)
+npmVersionNow=$(npm view create-app-js version)
 
 if [ "-${packageVersionNow}-" != "-${npmVersionNow}-" ]; then
   npm publish
