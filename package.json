@@ -1,7 +1,7 @@
 {
   "name": "create-app-js",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "这是一个创建express vite+plugin等前端项目的脚手架工具",
   "main": "index.js",
   "type": "module",
