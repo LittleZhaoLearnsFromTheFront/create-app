@@ -1,7 +1,7 @@
 {
   "name": "template-vite-plugin",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.mjs",
   "type": "module",
@@ -12,7 +12,7 @@
   "homepage": "https://github.com/LittleZhaoLearnsFromTheFront",
   "scripts": {
     "build": "unbuild",
-    "prepublish": "unbuild"
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist"
