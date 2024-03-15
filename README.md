@@ -11,3 +11,5 @@
 
 - v0.0.1
     增加Express模版和Vite-Plugin模版
+- v0.0.2
+    模版vite-plugin 发版prepublish改为prepublishOnly
