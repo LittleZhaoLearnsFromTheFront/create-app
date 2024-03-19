@@ -7,6 +7,7 @@ import {
     green,
     yellow,
     magenta,
+    lightGreen
 } from 'kolorist'
 import { fileURLToPath } from 'node:url'
 
@@ -22,11 +23,17 @@ const FRAMEWORKS = [
         color: green
     },
     {
-        name: 'plugin',
-        title: 'Plugin',
-        template: 'plugin',
-        color: blue
-    }
+        name: 'vite-plugin',
+        title: 'Vite-Plugin',
+        template: 'vite-plugin',
+        color: blue,
+    },
+    {
+        name: 'webpack-plugin',
+        title: 'Webpack-Plugin',
+        template: 'webpack-plugin',
+        color: lightGreen,
+    },
 ]
 
 const defaultProjectDir = 'labmai-project'
