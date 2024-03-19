@@ -22,14 +22,14 @@ const FRAMEWORKS = [
         color: green
     },
     {
-        name: 'vite-plugin',
-        title: 'Vite-plugin',
-        template: 'vite-plugin',
+        name: 'plugin',
+        title: 'Plugin',
+        template: 'plugin',
         color: blue
     }
 ]
 
-const defaultProjectDir = 'labmai-vite-project'
+const defaultProjectDir = 'labmai-project'
 const renameFiles: {
     [key: string]: string
 } = {
@@ -110,7 +110,7 @@ const init = async () => {
 
 
         const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent ?? "")
-        const pkgManager = pkgInfo ? pkgInfo.name ?? 'npm' : 'npm'
+        const pkgManager = pkgInfo ? pkgInfo.name || 'npm' : 'npm'
 
         console.log(`\nScaffolding project in ${root}...`)
 
